@@ -20,11 +20,20 @@ for i in range(len(args) - 1):
 
     elif args[i] == '--filters':  # --filters to select the filter for the picture
         print("FILTERS")
-        filter_to_apply = args[i + 1].split("|")
-        print(filter_to_apply)
+        filter_to_apply = args[i + 1].split("|")  #.split(), split the string into a list with the given separator
+
+        for a in range(len(filter_to_apply)-1):
+            # If a blur filter want to be applied, it will change the string to a dict which indicate the blur value
+            if filter_to_apply[a].find("blur:") != -1 or filter_to_apply[a].find("dilate:") != -1:
+                filter = filter_to_apply[a].split(":")
+                new_filter = {filter[0]: int(filter[1])}
+                filter_to_apply[a] = new_filter
+            elif filter_to_apply[a].find("blur") != -1 or filter_to_apply[a].find("dilate") != -1:
+                print(f"You need to define a value for the {filter_to_apply[a]} filter")
 
 image = cv2.imread(f'{entry}montagne.jpg')  # Reference our image
 
+print(filter_to_apply)
 core.modify_img(image)
 
 cv2.waitKey(0)  # destroy images when closing program
