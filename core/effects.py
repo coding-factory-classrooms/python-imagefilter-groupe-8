@@ -14,6 +14,7 @@ def turn_blur(image):
         blur_image = cv2.GaussianBlur(image, (blur_degree, blur_degree), blur_degree) #Creating blurred image
         cv2.imshow('Blurred Image', blur_image)
 
+
 def turn_dilated(image):
     kernel = np.ones((5,5),np.uint8)
     dilation_image = cv2.dilate(image,kernel,iterations = 1 )
