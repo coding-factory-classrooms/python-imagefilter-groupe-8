@@ -4,7 +4,7 @@ from effects import *
 args = sys.argv
 print(args)
 
-for i in range (args.len-1):
+for i in range (len(args)-1):
     if args[i] == '-i':             # -i is used to define the directory where the picture is come from
         entry = f'{args[i + 1]}/'
         print(f'input={entry}')
