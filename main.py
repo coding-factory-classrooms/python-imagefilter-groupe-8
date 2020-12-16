@@ -9,8 +9,8 @@ print(args)
 
 if args[1]== '-h':          # The help message
     print('\nAvailable argument:\n '
-          '-> -i <input>  -A directory where the picture come from\n '
-          '-> -o <output> -A directory where the picture will be\n '
+          '-> -i <FilePath>  -A directory where the picture come from\n '
+          '-> -o <FilePath>  -A directory where the picture will be\n '
           '-> --filters "filterA|filterB|..." -to apply to the picture \n'
           'Filters: blur:<an odd number> | dilate:<a number> | grayscale')
 else :
