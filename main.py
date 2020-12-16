@@ -2,6 +2,7 @@ import sys
 from effects import *
 import core as core
 import os
+import logger
 
 args = sys.argv
 print(args)
@@ -34,7 +35,6 @@ else :
                     filter_to_apply[a] = new_filter
                 elif filter_to_apply[a].find("blur") != -1 or filter_to_apply[a].find("dilate") != -1:
                     print(f"You need to define a value for the {filter_to_apply[a]} filter")
-
             print(filter_to_apply)
 
     try:
