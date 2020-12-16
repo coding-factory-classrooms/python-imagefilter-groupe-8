@@ -2,7 +2,7 @@ import sys
 from effects import *
 import core as core
 import os
-import logger
+from logger import *
 
 args = sys.argv
 print(args)
