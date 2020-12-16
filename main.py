@@ -1,6 +1,7 @@
 import sys
 from effects import *
 import core as core
+import os
 
 args = sys.argv
 print(args)
@@ -12,11 +13,9 @@ for i in range(len(args) - 1):
         print(f'input={entry}')
 
     elif args[i] == '-o':  # -o is the output where the transformed image will be put
-        try:
-            output = f'{entry}/{args[i + 1]}/'
-            print(f'output={output}')
-        except NameError:
-            print("No entry Found")
+        output = f'{args[i + 1]}/'
+        print(f'output={output}')
+        print("No entry Found")
 
     elif args[i] == '--filters':  # --filters to select the filter for the picture
         print("FILTERS")
@@ -31,10 +30,16 @@ for i in range(len(args) - 1):
             elif filter_to_apply[a].find("blur") != -1 or filter_to_apply[a].find("dilate") != -1:
                 print(f"You need to define a value for the {filter_to_apply[a]} filter")
 
-image = cv2.imread(f'{entry}montagne.jpg')  # Reference our image
+        print(filter_to_apply)
 
-print(filter_to_apply)
-core.modify_img(image)
+try :
+    with os.scandir(entry) as entries :
+        for file in entries:
+            image = cv2.imread(f'{entry}{file.name}')  # Reference our image
+            core.modify_img(image)
+            core.image_nbr += 1
+except NameError:
+    print("No entry found")
 
 cv2.waitKey(0)  # destroy images when closing program
 cv2.destroyAllWindows()
