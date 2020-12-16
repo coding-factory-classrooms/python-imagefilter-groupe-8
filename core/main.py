@@ -1,12 +1,24 @@
-import cv2
-import numpy as np
-import effects as ef
+import sys
+from effects import *
 
-image = cv2.imread('data/dunkey.jpg') #Reference our image
+args = sys.argv
+print(args)
 
-ef.turn_gray(image)
+for i in range (args.len-1):
+    if args[i] == '-i':             # -i is used to define the directory where the picture is come from
+        entry = f'{args[i + 1]}/'
+        print(f'input={entry}')
+    elif args[i] == '-o':           # -o is the output where the transformed image will be put
+        output = f'{args[i + 1]}/'
+        print(f'output={output}')
+    elif args[i] == '--filters':
+        print("FILTERS")
 
-ef.turn_blur(image)
 
-cv2.waitKey(0) #destroy images when closing program
+image = cv2.imread('data/dunkey.jpg')  # Reference our image
+
+turn_gray(image)
+turn_blur(image)
+
+cv2.waitKey(0)  # destroy images when closing program
 cv2.destroyAllWindows()
