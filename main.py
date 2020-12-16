@@ -10,15 +10,14 @@ print(len(args))
 for i in range(len(args) - 1):
     if args[i] == '-i':  # -i is used to define the directory where the picture is come from
         entry = f'{args[i + 1]}/'
-        print(f'input={entry}')
+        print(f'Directory Input={entry}')
 
     elif args[i] == '-o':  # -o is the output where the transformed image will be put
         output = f'{args[i + 1]}/'
-        print(f'output={output}')
-        print("No entry Found")
+        print(f'Directory Output={output}')
 
     elif args[i] == '--filters':  # --filters to select the filter for the picture
-        print("FILTERS")
+        print("FILTERS -")
         filter_to_apply = args[i + 1].split("|")  #.split(), split the string into a list with the given separator
 
         for a in range(len(filter_to_apply)-1):
@@ -33,13 +32,13 @@ for i in range(len(args) - 1):
         print(filter_to_apply)
 
 try :
-    with os.scandir(entry) as entries :
-        for file in entries:
+    with os.scandir(entry) as entries :             # Open the directory as a list
+        for file in entries:                        # file represent a picture
             image = cv2.imread(f'{entry}{file.name}')  # Reference our image
             core.modify_img(image)
             core.image_nbr += 1
-except NameError:
-    print("No entry found")
+except NameError(entry):
+    print("No entry for a directory found")
 
 cv2.waitKey(0)  # destroy images when closing program
 cv2.destroyAllWindows()
