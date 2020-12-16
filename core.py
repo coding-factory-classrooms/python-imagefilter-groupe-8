@@ -9,7 +9,7 @@ def modify_img(image):
         image = turn_dilated(image)
         cv2.imshow(f'{image_nbr}', image)
     except cv2.error:
-        print("Not a valid file")
+        print(f"Not a valid file: {image}")
 
 # image = cv2.imread('data/montagne.jpg')
 # image_gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
