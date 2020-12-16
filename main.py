@@ -1,5 +1,6 @@
 import sys
 from effects import *
+import core as core
 
 args = sys.argv
 print(args)
@@ -22,14 +23,9 @@ for i in range(len(args) - 1):
         filter_to_apply = args[i + 1].split("|")
         print(filter_to_apply)
 
+image = cv2.imread(f'{entry}montagne.jpg')  # Reference our image
 
-try :
-    image = cv2.imread(f'{entry}montagne.jpg')  # Reference our image
-    turn_gray(image)
-    turn_blur(image)
-    turn_dilated(image)
-except NameError:
-    print("No entry found")
+core.modify_img(image)
 
 cv2.waitKey(0)  # destroy images when closing program
 cv2.destroyAllWindows()
