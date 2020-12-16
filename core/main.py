@@ -7,7 +7,7 @@ gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
 cv2.imshow('Original image', image) #Create two images, one gray and one classic
 cv2.imshow('Gray image', gray)
 
-blur_image = cv2.GaussianBlur(image, (3, 33), 0)
+blur_image = cv2.GaussianBlur(image, (37, 45), 13) #Creating blurred image
 cv2.imshow('Blurred Image', blur_image)
 
 cv2.waitKey(0) #destroy images when closing program
