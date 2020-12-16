@@ -15,10 +15,10 @@ for i in range (args.len-1):
         print("FILTERS")
 
 
-image = cv2.imread('data/dunkey.jpg')  # Reference our image
+image = cv2.imread('data/dunkey.jpg') #Reference our image
 
 turn_gray(image)
 turn_blur(image)
 
-cv2.waitKey(0)  # destroy images when closing program
+cv2.waitKey(0) #destroy images when closing program
 cv2.destroyAllWindows()
