@@ -22,10 +22,13 @@ for i in range(len(args) - 1):
         filter_to_apply = args[i + 1].split("|")  #.split(), split the string into a list with the given separator
 
         for a in range(len(filter_to_apply)-1):
-            if filter_to_apply[a].find("blur") != -1:   #If a blur filter want to be applied, it will change the string to a dict which indicate the blur value
-                blur = filter_to_apply[a].split(":")
-                new_blur = {blur[0]: int(blur[1])}
-                filter_to_apply[a] = new_blur
+            # If a blur filter want to be applied, it will change the string to a dict which indicate the blur value
+            if filter_to_apply[a].find("blur:") != -1 or filter_to_apply[a].find("dilate:") != -1:
+                filter = filter_to_apply[a].split(":")
+                new_filter = {filter[0]: int(filter[1])}
+                filter_to_apply[a] = new_filter
+            elif filter_to_apply[a].find("blur") != -1 or filter_to_apply[a].find("dilate") != -1:
+                print(f"You need to define a value for the {filter_to_apply[a]} filter")
 
         print(filter_to_apply)
 
