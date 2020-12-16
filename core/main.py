@@ -1,13 +1,15 @@
-import numpy as np
+import sys
 from effects import *
 
-image = cv2.imread('data/montagne.jpg') #Reference our image
+args = sys.argv
+print(args)
+
+for i in range (args.len):
+
+image = cv2.imread('data/dunkey.jpg') #Reference our image
 
 turn_gray(image)
-
 turn_blur(image)
-
-turn_dilated(image)
 
 cv2.waitKey(0) #destroy images when closing program
 cv2.destroyAllWindows()
