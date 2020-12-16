@@ -1,12 +1,15 @@
-import cv2
-import numpy as np
-import effects as ef
+import sys
+from effects import *
+
+args = sys.argv
+print(args)
+
+for i in range (args.len):
 
 image = cv2.imread('data/dunkey.jpg') #Reference our image
 
-ef.turn_gray(image)
-
-ef.turn_blur(image)
+turn_gray(image)
+turn_blur(image)
 
 cv2.waitKey(0) #destroy images when closing program
 cv2.destroyAllWindows()
