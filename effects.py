@@ -1,5 +1,6 @@
 import cv2
 import numpy as np
+from logger import *
 
 def turn_gray(image):
     gray_img = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
@@ -11,6 +12,8 @@ def turn_blur(image):
     if blur_degree % 2 !=0:
         blur_image = cv2.GaussianBlur(image, (blur_degree, blur_degree), blur_degree) #Creating blurred image
         return blur_image
+    else:
+        log("Wrong degree given")
 
 def turn_dilated(image):
     kernel = np.ones((5,5),np.uint8)
