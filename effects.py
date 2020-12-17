@@ -19,7 +19,7 @@ def turn_blur(image, blur_degree):
     :return: an image with a blur filter
     """
 
-    if blur_degree % 2 !=0:
+    if blur_degree % 2 !=0 and blur_degree > 0:
         blur_image = cv2.GaussianBlur(image, (blur_degree, blur_degree), blur_degree) #Creating blurred image
         return blur_image
     else:
