@@ -44,7 +44,7 @@ try:
                 for file in entries:  # file represent a picture
                     image = cv2.imread(f'{entry}{file.name}')  # Reference our image
                     core.modify_img(image, filter_to_apply)
-                    # core.save(image, output)
+                    core.save_image(image)
                     core.image_nbr += 1
         except NameError:
             print("No entry for a directory or no filters found")
