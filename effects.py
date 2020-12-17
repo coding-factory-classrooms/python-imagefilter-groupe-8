@@ -29,7 +29,7 @@ def turn_dilated(image,pixel_value):
     """
     Function to apply a dilation filter on the image
     :param image: Same picture if it passed by by the other filters
-    :param pixel_value: a value to know how much we'll dilate the picture
+    :param pixel_value: a value to know how much we'l$iml dilate the picture
     :return: a dilated picture
     """
     kernel = np.ones((pixel_value,pixel_value),np.uint8)

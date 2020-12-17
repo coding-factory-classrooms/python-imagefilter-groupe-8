@@ -4,6 +4,7 @@ import core as core
 import os
 from logger import *
 
+# if a config.txt file in here, then we read it instead of the parameters in the console
 try :
     with open('config.txt','r') as f:
         args = f.read().replace('"','').split()
