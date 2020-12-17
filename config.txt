@@ -3,4 +3,6 @@ input: data/
 output: output/
 
 [Filters]
-Filters: "blur:9|dilate:5|grayscale|authors"
+// filters available: blur:<an odd number> | dilate:<a number> | grayscale | authors
+
+Filters: "blur:15|dilate:5|grayscale|authors"
