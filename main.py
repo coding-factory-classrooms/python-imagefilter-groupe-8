@@ -12,8 +12,8 @@ try :
 except FileNotFoundError:
     args = sys.argv
 
-print(args)
-args_dict = {}
+print(f'args={args}') # the brut args
+args_dict = {}        # the true args, the user gives
 
 try:
     if args[1] == '-h':  # The help message
