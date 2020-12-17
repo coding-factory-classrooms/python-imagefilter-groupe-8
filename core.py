@@ -2,7 +2,7 @@ from effects import *
 
 image_nbr = 0
 
-def modify_img(image):
+def modify_img(image, filters):
     try:
         image = turn_gray(image)
         image = turn_blur(image)
@@ -11,6 +11,7 @@ def modify_img(image):
     except cv2.error:
         print(f"Not a valid file")
 
+# def save(image, output):
 # image = cv2.imread('data/montagne.jpg')
 # image_gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
 #

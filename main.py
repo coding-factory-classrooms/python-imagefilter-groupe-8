@@ -39,14 +39,15 @@ try:
                         print(f"You need to define a value for the {filter_to_apply[a]} filter")
                 log(f"FILTERS TO USE - {filter_to_apply}")
 
-        try:
+        try: # Because 'entry' and 'filter_to_apply' can not be define, there an except
             with os.scandir(entry) as entries:  # Open the directory as a list
                 for file in entries:  # file represent a picture
                     image = cv2.imread(f'{entry}{file.name}')  # Reference our image
-                    core.modify_img(image)
+                    core.modify_img(image, filter_to_apply)
+                    # core.save(image, output)
                     core.image_nbr += 1
         except NameError:
-            print("No entry for a directory found")
+            print("No entry for a directory or no filters found")
 
 except IndexError :
     print("No parameter founds")
