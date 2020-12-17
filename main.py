@@ -9,6 +9,7 @@ print(args)
 
 try:
     if args[1] == '-h':  # The help message
+        log("Print the help")
         print('\nAvailable argument:\n '
               '-> -i <FilePath>  -A directory where the picture come from\n '
               '-> -o <FilePath>  -A directory where the picture will be\n '
@@ -18,14 +19,13 @@ try:
         for i in range(len(args) - 1):
             if args[i] == '-i':  # -i is used to define the directory where the picture is come from
                 entry = f'{args[i + 1]}/'
-                print(f'Directory Input={entry}')
+                log(f'Directory Input={entry}')
 
             elif args[i] == '-o':  # -o is the output where the transformed image will be put
                 output = f'{args[i + 1]}/'
-                print(f'Directory Output={output}')
+                log(f'Directory Output={output}')
 
             elif args[i] == '--filters':  # --filters to select the filter for the picture
-                print("FILTERS -")
                 filter_to_apply = args[i + 1].split(
                     "|")  # .split(), split the string into a list with the given separator
 
@@ -37,7 +37,7 @@ try:
                         filter_to_apply[a] = new_filter
                     elif filter_to_apply[a].find("blur") != -1 or filter_to_apply[a].find("dilate") != -1:
                         print(f"You need to define a value for the {filter_to_apply[a]} filter")
-                print(filter_to_apply)
+                log(f"FILTERS TO USE - {filter_to_apply}")
 
         try:
             with os.scandir(entry) as entries:  # Open the directory as a list
