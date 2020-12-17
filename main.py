@@ -4,8 +4,15 @@ import core as core
 import os
 from logger import *
 
-args = sys.argv
+try :
+    with open('config.txt','r') as f:
+        args = f.read().replace('"','').split()
+        print("reading...")
+except FileNotFoundError:
+    args = sys.argv
+
 print(args)
+
 
 try:
     if args[1] == '-h':  # The help message
