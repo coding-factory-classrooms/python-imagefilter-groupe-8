@@ -22,7 +22,7 @@ try:
               '-> -i <FilePath>  -A directory where the picture come from\n '
               '-> -o <FilePath>  -A directory where the picture will be\n '
               '-> --filters "filterA|filterB|..." -to apply to the picture \n'
-              'Filters: blur:<an odd number> | dilate:<a number> | grayscale')
+              'Filters: blur:<an odd number> | dilate:<a number> | grayscale | authors')
     else:
         for i in range(len(args) - 1):
             if args[i] == '-i' or args[i] == 'input:':  # -i is used to define the directory where the picture is come from
