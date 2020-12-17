@@ -1,1 +1,1 @@
--i data -o output --filters "blur:9|dilate:5|grayscale"
+-i data -o output --filters "blur:9|dilate:5|grayscale|authors"

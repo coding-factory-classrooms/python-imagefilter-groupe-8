@@ -35,3 +35,13 @@ def turn_dilated(image,pixel_value):
     kernel = np.ones((pixel_value,pixel_value),np.uint8)
     dilation_image = cv2.dilate(image,kernel,iterations = 1 )
     return dilation_image
+
+def filter_ze_team(image, noms):
+    """
+    Function to put the names of the authors on the pic
+    :param image: Same picture on every function
+    :param noms: The names we want to write on the pic
+    :return: an image with some names on it
+    """
+    texted_image = cv2.putText(image, noms, (10,50), cv2.FONT_HERSHEY_SIMPLEX, 2, (255, 0, 0), 2, cv2.LINE_AA)
+    return texted_image;
