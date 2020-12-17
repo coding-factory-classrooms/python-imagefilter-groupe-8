@@ -25,15 +25,15 @@ try:
               'Filters: blur:<an odd number> | dilate:<a number> | grayscale')
     else:
         for i in range(len(args) - 1):
-            if args[i] == '-i':  # -i is used to define the directory where the picture is come from
-                args_dict['entry'] = f'{args[i + 1]}/'
+            if args[i] == '-i' or args[i] == 'input:':  # -i is used to define the directory where the picture is come from
+                args_dict['entry'] = f'{args[i + 1]}'
                 log(f'Directory Input={args_dict["entry"]}')
 
-            elif args[i] == '-o':  # -o is the output where the transformed image will be put
-                args_dict['output'] = f'{args[i + 1]}/'
+            elif args[i] == '-o' or args[i] == 'output:':  # -o is the output where the transformed image will be put
+                args_dict['output'] = f'{args[i + 1]}'
                 log(f'Directory Output={args_dict["output"]}')
 
-            elif args[i] == '--filters':  # --filters to select the filter for the picture
+            elif args[i] == '--filters' or args[i] == 'Filters:':  # --filters to select the filter for the picture
                 args_dict["filter_to_apply"] = args[i + 1].split("|")  # .split(), split the string into a list with the given separator
 
                 for a in range(len(args_dict["filter_to_apply"])):

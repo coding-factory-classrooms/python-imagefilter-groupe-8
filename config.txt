@@ -1,1 +1,6 @@
--i data -o output --filters "blur:9|dilate:5|grayscale|authors"
+[General]
+input: data/
+output: output/
+
+[Filters]
+Filters: "blur:9|dilate:5|grayscale|authors"
