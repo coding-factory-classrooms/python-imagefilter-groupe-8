@@ -4,11 +4,11 @@ import core as core
 import os
 from logger import *
 
-# if a config.txt file in here, then we read it instead of the parameters in the console
+# if a config.ini file in here, then we read it instead of the parameters in the console
 try :
-    with open('config.txt','r') as f:
+    with open('config.ini','r') as f:
         args = f.read().replace('"','').split()
-        print("Reading config.txt")
+        print("Reading config.ini")
 except FileNotFoundError:
     args = sys.argv
 
